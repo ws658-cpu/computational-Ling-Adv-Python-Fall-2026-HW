@@ -1,0 +1,7 @@
+Questions Based on the Graph
+
+1. What is the shape of the graph?
+   The graph slopes downward from the upper left to the lower right. It then begins to plateau after approximately \(10^3\) on the rank axis.
+
+2. What is the significance of the plot?
+   The plot demonstrates Zipf’s Law: as a word’s rank increases, its frequency decreases. In other words, a small number of words appear very frequently, while many words appear only a few times.
