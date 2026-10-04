@@ -21,10 +21,7 @@ def make_model():
     })
 
     # Match the textbook's smoothing and vocabulary convention.
-    model = NaiveBayes(
-        alpha=1.0,
-        include_unknown=False,
-    )
+    model = NaiveBayes(alpha=1.0)
     model.train(df)
     return model
 
