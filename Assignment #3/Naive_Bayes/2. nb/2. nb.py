@@ -205,7 +205,6 @@ if __name__ == "__main__":
     model.train(training_df)
     class_predictions = model.test(test_df)
     # I removed old textcode of "vocabulary, priors, likelihoods = train_nb(training_df)" and "predictions = test(test_df, vocabulary, priors, likelihoods)" because I implemented the NaiveBayes class and its methods train and test. The old code was redundant.
-    
     acc, f1, conf = get_metrics(test_df, class_predictions)
     plot_confusion_matrix(conf, [0, 1])
     sklearn_preds = sklearn_nb(training_df, test_df)
