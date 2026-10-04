@@ -6,8 +6,14 @@ from nb.nb import NaiveBayes
 
 def make_model():
     # Replace these lists with the Appendix B training data.
-    documents = [...]
-    labels = [...]
+    documents =  [
+        "just plain boring",
+        "entirely predictable and lacks energy",
+        "no surprises and very few laughs",
+        "very powerful",
+        "the most fun film of the summer",
+    ]
+    labels = [0,0,0,1,1]
 
     df = pd.DataFrame({
         "text": documents,
