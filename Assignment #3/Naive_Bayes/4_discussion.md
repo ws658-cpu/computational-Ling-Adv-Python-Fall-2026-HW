@@ -35,8 +35,8 @@ All three tests passed: the class priors match the expected values, the word lik
 
 D) D) My main.py uses argparse to accept the data directory, loads the training and test DataFrames, trains the NaiveBayes model, and prints its priors and predictions. The predictions correspond to the test documents in their loading order.
 
-Command: py -m nb.bin.main -f Data
-Output:
+Command: py -m nb.bin.main -f
+Data Output:
 Class labels: 0 = Kennedy, 1 = Johnson
 Priors: [0.35294118 0.64705882]
 Predictions: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
