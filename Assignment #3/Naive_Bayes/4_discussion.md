@@ -1,6 +1,7 @@
 Assignment #3: Whitney Syriaque
 
 **Problem 1**
+
 A) **How is it different from yours? What could you have done differently? What do you think I could have done better?**
 My implementation follows the same overall approach as the professor’s: both load documents into DataFrames, use whitespace tokenization, estimate class priors and word likelihoods, and predict authors using logarithmic scores. However, I sort my vocabulary to make its column order reproducible, use pandas to calculate class proportions, and store word counts in a class-by-word matrix. This lets me calculate the likelihoods for all words in a class together. My smoothing denominator also matches the number of vocabulary columns, so the likelihoods for each class sum to one. The professor’s denominator includes an additional category without a corresponding matrix column. I could improve my implementation by removing repeated calculations, cleaning up comments and documentation, adding unit tests, and organizing training and prediction into a class. The professor’s implementation could benefit from consistent smoothing, a sorted vocabulary, and explicit file encoding.
 
