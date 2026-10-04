@@ -29,7 +29,7 @@ def make_model():
 def test_nb_class():
     model = make_model()
 
-    expected_priors = np.array([...])
+    expected_priors = np.array([3/5,2/5])
 
     np.testing.assert_allclose(
         model.priors,
@@ -42,10 +42,24 @@ def test_likelihoods():
 
     # Build this matrix in model.vocabulary column order.
     expected_likelihoods = np.array([
-        [...],
-        [...],
+        [
+            3/34, 2/34, 2/34, 2/34, 2/34, #negative-class probabilities
+            1/34, 1/34, 2/34, 2/34, 2/34, 
+            1/34, 2/34, 1/34, 2/34, 1/34,
+            2/34, 1/34, 2/34, 1/34, 2/34,
+        ],
+        [
+            1/29, 1/29, 1/29, 1/29, 1/29, #positive-class probabilities
+            2/29, 2/29, 1/29, 1/29, 1/29,
+            2/29, 1/29, 2/29, 1/29, 2/29,
+            1/29, 2/29, 1/29, 3/29, 2/29,
+        ],
     ])
-
+# the column order in likelihood matrix is :
+#and, boring, energy, entirely, few, film, fun, just,
+#lacks, laughs, most, no, of, plain, powerful,
+#predictable, summer, surprises, the, very
+    
     np.testing.assert_allclose(
         model.likelihoods,
         expected_likelihoods,
