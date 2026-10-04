@@ -25,7 +25,7 @@ def make_model():
     model.train(df)
     return model
 
-
+#Test 1: checking the probabilities of each class before considersing the words.
 def test_nb_class():
     model = make_model()
 
@@ -36,11 +36,11 @@ def test_nb_class():
         expected_priors,
     )
 
-
+#Test 2: checking the probabilies of each vocabulary word given in a class
 def test_likelihoods():
     model = make_model()
 
-    # Build this matrix in model.vocabulary column order.
+ # Build this matrix in model.vocabulary column order.
     expected_likelihoods = np.array([
         [
             3/34, 2/34, 2/34, 2/34, 2/34, #negative-class probabilities
@@ -71,5 +71,6 @@ def test_likelihoods_sum_to_one():
 
     np.testing.assert_allclose(
         model.likelihoods.sum(axis=1),
-        np.ones(len(model.classes)),
+        # replace np.ones(len(model.classes)) to [1.0, 1.0]
+        [1.0, 1.0],
     )
