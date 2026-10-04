@@ -43,3 +43,5 @@ Class labels: 0 = Kennedy, 1 = Johnson
 Priors: [0.35294118 0.64705882]
 Predictions: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
 
+
+**Problem 2**
