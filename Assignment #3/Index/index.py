@@ -81,11 +81,9 @@ print("Stemming:", args.s)
 
 # Information prior to the update
 #tokenizer = WhitespaceTokenizer()
-
 #if documents:
    # first_doc_id, first_text = documents[0]
     #tokens = tokenizer.tokenize(first_text)
-
    # print("First 20 tokens:", tokens[:20])
 
 tokenizer = WhitespaceTokenizer()
