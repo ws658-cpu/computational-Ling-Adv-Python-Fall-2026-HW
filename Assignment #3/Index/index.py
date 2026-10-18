@@ -10,11 +10,34 @@ class Tokenizer:
             "Each tokenizer subclass must implement tokenize()."
         )
 
-
 class WhitespaceTokenizer(Tokenizer):
     def tokenize(self, text):
         return text.split()
 
+class CharacterNGramTokenizer(Tokenizer):
+    def __init__(self, n=4):
+        if n < 1:
+            raise ValueError("n must be at least 1.")
+
+        self.n = n
+
+    def tokenize(self, text):
+        return [
+            text[i:i + self.n]
+            for i in range(len(text) - self.n + 1)
+        ]
+    
+def normalize(tokens):
+    normalized_tokens = []
+
+    for token in tokens:
+        cleaned_token = token.lower().strip(string.punctuation)
+
+        if cleaned_token:
+            normalized_tokens.append(cleaned_token)
+
+    return normalized_tokens    
+    
 def normalize(tokens):
     normalized_tokens = []
 
@@ -79,6 +102,17 @@ print("File:", args.f)
 print("Tokenizer:", args.t)
 print("Stemming:", args.s)
 
+# Being replaced with the following code to include normalization of tokens
+#tokenizer = WhitespaceTokenizer()
+if args.t == "whitespace":
+    tokenizer = WhitespaceTokenizer()
+elif args.t == "ngram":
+    tokenizer = CharacterNGramTokenizer()
+else:
+    raise NotImplementedError(
+        "The off-the-shelf tokenizer has not been added yet."
+    )
+
 # Information prior to the update
 #tokenizer = WhitespaceTokenizer()
 #if documents:
@@ -88,6 +122,7 @@ print("Stemming:", args.s)
 
 tokenizer = WhitespaceTokenizer()
 
+# information prior to update: #tokenizer = WhitespaceTokenizer()
 if documents:
     first_doc_id, first_text = documents[0]
     tokens = tokenizer.tokenize(first_text)
