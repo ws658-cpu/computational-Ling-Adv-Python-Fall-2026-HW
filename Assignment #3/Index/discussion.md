@@ -1,4 +1,5 @@
 **Problem 2**
+
 **A)** I used Python’s xml.etree.ElementTree to parse 20newsgroups-initial.xml. For each <doc> element, I extracted the document ID from <docid> and the text from <msgtext>. The initial collection contained 20 documents, stored as (document ID, text) pairs.
 
 **B)what are the universal properties of a tokenizer that you should include in your interface?**
