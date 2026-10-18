@@ -1,4 +1,3 @@
-For Problem 1: Copy and paste the following code for your setup.py file. Only change the regions marked in bold.
 import setuptools
 with open('README.md', 'r') as f:
  long_description = f.read()
