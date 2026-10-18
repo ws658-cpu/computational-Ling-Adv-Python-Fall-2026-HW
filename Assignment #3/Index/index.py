@@ -2,6 +2,30 @@ import xml.etree.ElementTree as ET
 
 import argparse
 
+import string
+
+class Tokenizer:
+    def tokenize(self, text):
+        raise NotImplementedError(
+            "Each tokenizer subclass must implement tokenize()."
+        )
+
+
+class WhitespaceTokenizer(Tokenizer):
+    def tokenize(self, text):
+        return text.split()
+
+def normalize(tokens):
+    normalized_tokens = []
+
+    for token in tokens:
+        cleaned_token = token.lower().strip(string.punctuation)
+
+        if cleaned_token:
+            normalized_tokens.append(cleaned_token)
+
+    return normalized_tokens   
+
 parser = argparse.ArgumentParser(description="Build an inverted index.")
 
 parser.add_argument(
@@ -54,3 +78,21 @@ if documents:
 print("File:", args.f)
 print("Tokenizer:", args.t)
 print("Stemming:", args.s)
+
+# Information prior to the update
+#tokenizer = WhitespaceTokenizer()
+
+#if documents:
+   # first_doc_id, first_text = documents[0]
+    #tokens = tokenizer.tokenize(first_text)
+
+   # print("First 20 tokens:", tokens[:20])
+
+tokenizer = WhitespaceTokenizer()
+
+if documents:
+    first_doc_id, first_text = documents[0]
+    tokens = tokenizer.tokenize(first_text)
+    tokens = normalize(tokens)
+
+    print("First 20 normalized tokens:", tokens[:20])
