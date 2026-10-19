@@ -5,3 +5,10 @@ __pycache__/
 build/
 dist/
 Data/
+
+# Local virtual environments
+.venv/
+venv/
+
+# Main dataset
+Data/
