@@ -29,7 +29,7 @@ conda env create -f environment.yml
 Activate the environment using the name specified in environment.yml:
 
 ```bash
-conda activate ENVIRONMENT_NAME
+conda activate dsan5400
 ```
 
 From inside the Naive_Bayes folder, install the project:
